@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { Command } from 'commander';
 import fs from 'fs';
 import path from 'path';
@@ -28,7 +30,7 @@ const program = new Command();
 program
     .name('cloud-resource-logger')
     .description('CLI for listing AWS resources')
-    .version(version); // This will use the version from package.json
+    .version(version); // Use version from package.json
 
 // Define the 'list' command
 program
@@ -50,6 +52,14 @@ program
     .description('Show help message')
     .action(() => {
         displayHelp();
+    });
+
+// Define the 'version' command
+program
+    .command('version')
+    .description('Show version number')
+    .action(() => {
+        console.log(version);
     });
 
 // Parse command-line arguments
