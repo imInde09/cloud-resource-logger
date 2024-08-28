@@ -1,8 +1,11 @@
-#!/usr/bin/env node
+import { Command } from 'commander';
+import fs from 'fs';
+import path from 'path';
+import { listResources } from './src/listResources.js';
 
-const { Command } = require('commander');
-const { listResources } = require('./src/listResources');
-const { version } = require('./package.json'); // Import version from package.json
+// Read package.json
+const packageJsonPath = path.resolve('package.json');
+const { version } = JSON.parse(fs.readFileSync(packageJsonPath, 'utf8'));
 
 // Function to display help information
 const displayHelp = () => {
@@ -10,11 +13,13 @@ const displayHelp = () => {
     console.log('  cloud-resource-logger list --service <service>');
     console.log('');
     console.log('Available Services:');
-    console.log('  ec2      - List all EC2 instances');
-    console.log('  s3       - List all S3 buckets');
+    console.log('  ec2       - List all EC2 instances');
+    console.log('  s3        - List all S3 buckets');
+    console.log('  lambda    - List all Lambda functions');
+    console.log('  dynamodb  - List all DynamoDB tables');
     console.log('');
     console.log('Commands:');
-    console.log('  help     - Show this help message');
+    console.log('  help      - Show this help message');
 };
 
 // Create a new Commander program instance
@@ -29,14 +34,14 @@ program
 program
     .command('list')
     .description('List AWS resources')
-    .option('--service <service>', 'Specify the AWS service (ec2, s3)')
+    .option('--service <service>', 'AWS service to list (e.g., ec2, s3, lambda, dynamodb)')
     .action(async (options) => {
-        if (options.service) {
-            await listResources(options.service);
-        } else {
-            console.log('Please specify a service using --service option.');
-            displayHelp();
+        const { service } = options;
+        if (!service) {
+            console.log('Please provide a service using --service');
+            return;
         }
+        await listResources(service);
     });
 
 // Define the 'help' command
