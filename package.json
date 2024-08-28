@@ -3,8 +3,9 @@
   "version": "1.0.8",
   "description": "CLI tool for listing AWS resources such as EC2 instances and S3 buckets. Prompts for AWS credentials and displays resource information.",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha --recursive",
     "start": "node index.js",
     "list": "node index.js list",
     "help": "node index.js help"
@@ -37,5 +38,10 @@
   "bugs": {
     "url": "https://github.com/imInde09/cloud-resource-logger/issues"
   },
-  "homepage": "https://github.com/imInde09/cloud-resource-logger#readme"
+  "homepage": "https://github.com/imInde09/cloud-resource-logger#readme",
+  "devDependencies": {
+    "chai": "^5.1.1",
+    "mocha": "^10.7.3",
+    "sinon": "^18.0.0"
+  }
 }
