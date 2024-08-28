@@ -28,7 +28,7 @@ const program = new Command();
 program
     .name('cloud-resource-logger')
     .description('CLI for listing AWS resources')
-    .version(version); // Use version from package.json
+    .version(version); // This will use the version from package.json
 
 // Define the 'list' command
 program
