@@ -1,13 +1,16 @@
 {
   "name": "cloud-resource-logger",
-  "version": "1.0.3",
+  "version": "1.0.6",
   "description": "CLI tool for listing AWS resources such as EC2 instances and S3 buckets. Prompts for AWS credentials and displays resource information.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "list": "node index.js list",
+    "help": "node index.js help"
   },
   "bin": {
-    "cloud-resource-logger": "./index.js"
+    "cloud-resource-logger": "index.js"
   },
   "keywords": [
     "aws",
@@ -22,13 +25,14 @@
   "dependencies": {
     "@aws-sdk/client-ec2": "^3.637.0",
     "@aws-sdk/client-s3": "^3.637.0",
+    "cloud-resource-logger": "1.0.x",
     "commander": "^12.1.0",
     "dotenv": "^16.4.5",
     "inquirer": "^10.1.8"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/imInde09/cloud-resource-logger.git"
+    "url": "git+https://github.com/imInde09/cloud-resource-logger.git"
   },
   "bugs": {
     "url": "https://github.com/imInde09/cloud-resource-logger/issues"
