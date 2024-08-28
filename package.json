@@ -1,6 +1,6 @@
 {
   "name": "cloud-resource-logger",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "CLI tool for listing AWS resources such as EC2 instances, S3 buckets, Lambda function and dynamodb.",
   "main": "index.js",
   "type": "module",
