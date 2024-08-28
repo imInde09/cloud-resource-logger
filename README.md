@@ -1,7 +1,7 @@
 
-## Cloud-Resource-Logger
-```markdown
-`cloud-resource-logger` is a CLI tool for listing AWS resources such as EC2 instances and S3 buckets. It prompts for AWS credentials and displays information about the specified resources.
+# Cloud-Resource-Logger
+
+**cloud-resource-logger** is a CLI tool for listing AWS resources such as EC2 instances and S3 buckets. It prompts for AWS credentials and displays information about the specified resources.
 
 ## Installation
 
@@ -62,6 +62,7 @@ S3 Buckets:
 ## Configuration
 
 You will be prompted to enter the following AWS credentials:
+
 - **AWS Access Key ID**
 - **AWS Secret Access Key**
 - **AWS Region**
@@ -74,18 +75,18 @@ MIT License. See the [LICENSE](LICENSE) file for more details.
 
 ## Contributing
 
-Feel free to contribute to the project by opening issues or submitting pull requests. 
+Feel free to contribute to the project by opening issues or submitting pull requests.
 
 ## Contact
 
-For any questions or feedback, please reach out to [Prathamesh Inde] at [prathameshinde86@gmail.com].
+For any questions or feedback, please reach out to Prathamesh Inde at <prathameshinde86@gmail.com>.
 
 ---
 
 Thank you for using `cloud-resource-logger`!
-```
 
-### Key Sections Included:
+
+## Key Sections Included:
 
 - **Installation**: How to install the CLI tool.
 - **Usage**: Instructions on how to use the tool with example commands.
