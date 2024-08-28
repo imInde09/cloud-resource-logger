@@ -98,3 +98,4 @@ Thank you for using `cloud-resource-logger`!
 - **Contact**: How to contact you for support or feedback.
 
 Feel free to adjust the contact information and any other details as needed.
+
