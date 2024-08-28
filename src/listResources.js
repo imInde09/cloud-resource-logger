@@ -1,7 +1,6 @@
-// listResources.js
-const readline = require('readline');
-const { EC2Client, DescribeInstancesCommand } = require('@aws-sdk/client-ec2');
-const { S3Client, ListBucketsCommand } = require('@aws-sdk/client-s3');
+import readline from 'readline';
+import { EC2Client, DescribeInstancesCommand } from '@aws-sdk/client-ec2';
+import { S3Client, ListBucketsCommand } from '@aws-sdk/client-s3';
 
 const rl = readline.createInterface({
     input: process.stdin,
@@ -79,4 +78,4 @@ const listS3Buckets = async (accessKeyId, secretAccessKey, region) => {
     console.log('S3 Buckets:', buckets);
 };
 
-module.exports = { listResources };
+export { listResources };
