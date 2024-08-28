@@ -1,7 +1,7 @@
 {
   "name": "cloud-resource-logger",
-  "version": "1.0.9",
-  "description": "CLI tool for listing AWS resources such as EC2 instances and S3 buckets. Prompts for AWS credentials and displays resource information.",
+  "version": "1.0.10",
+  "description": "CLI tool for listing AWS resources such as EC2 instances, S3 buckets, Lambda function and dynamodb.",
   "main": "index.js",
   "type": "module",
   "scripts": {
@@ -24,7 +24,9 @@
   "author": "Prathamesh Inde",
   "license": "ISC",
   "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.637.0",
     "@aws-sdk/client-ec2": "^3.637.0",
+    "@aws-sdk/client-lambda": "^3.637.0",
     "@aws-sdk/client-s3": "^3.637.0",
     "cloud-resource-logger": "1.0.x",
     "commander": "^12.1.0",

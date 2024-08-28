@@ -1,7 +1,7 @@
 
 # Cloud-Resource-Logger
 
-**cloud-resource-logger** is a CLI tool for listing AWS resources such as EC2 instances and S3 buckets. It prompts for AWS credentials and displays information about the specified resources.
+**cloud-resource-logger** is a CLI tool for listing AWS resources such as EC2 instances, S3 buckets, Lambda functions, and DynamoDB tables. It prompts for AWS credentials and displays information about the specified resources.
 
 ## Installation
 
@@ -31,11 +31,29 @@ To list all S3 buckets, use the following command:
 cloud-resource-logger list --service s3
 ```
 
+### List Lambda Functions
+
+To list all Lambda functions, use the following command:
+
+```bash
+cloud-resource-logger list --service lambda
+```
+
+### List DynamoDB Tables
+
+To list all DynamoDB tables, use the following command:
+
+```bash
+cloud-resource-logger list --service dynamodb
+```
+
 ## Commands
 
 - `list --service <service>`: Specify the AWS service you want to query. Valid options are:
   - `ec2` - Lists all EC2 instances.
   - `s3` - Lists all S3 buckets.
+  - `lambda` - Lists all Lambda functions.
+  - `dynamodb` - Lists all DynamoDB tables.
 
 - `help`: Show this help message.
 
@@ -57,6 +75,22 @@ Enter AWS Region: [Your AWS Region]
 
 S3 Buckets:
 [ ... list of buckets ... ]
+
+$ cloud-resource-logger list --service lambda
+Enter AWS Access Key ID: [Your Access Key ID]
+Enter AWS Secret Access Key: [Your Secret Access Key]
+Enter AWS Region: [Your AWS Region]
+
+Lambda Functions:
+[ ... list of functions ... ]
+
+$ cloud-resource-logger list --service dynamodb
+Enter AWS Access Key ID: [Your Access Key ID]
+Enter AWS Secret Access Key: [Your Secret Access Key]
+Enter AWS Region: [Your AWS Region]
+
+DynamoDB Tables:
+[ ... list of tables ... ]
 ```
 
 ## Configuration
@@ -85,7 +119,6 @@ For any questions or feedback, please reach out to Prathamesh Inde at <prathames
 
 Thank you for using `cloud-resource-logger`!
 
-
 ## Key Sections Included:
 
 - **Installation**: How to install the CLI tool.
@@ -96,6 +129,3 @@ Thank you for using `cloud-resource-logger`!
 - **License**: Information about the license.
 - **Contributing**: Instructions for contributing to the project.
 - **Contact**: How to contact you for support or feedback.
-
-Feel free to adjust the contact information and any other details as needed.
-

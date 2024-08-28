@@ -1,6 +1,8 @@
 import readline from 'readline';
 import { EC2Client, DescribeInstancesCommand } from '@aws-sdk/client-ec2';
 import { S3Client, ListBucketsCommand } from '@aws-sdk/client-s3';
+import { LambdaClient, ListFunctionsCommand } from '@aws-sdk/client-lambda'; // Added LambdaClient
+import { DynamoDBClient, ListTablesCommand } from '@aws-sdk/client-dynamodb'; // Added DynamoDBClient
 
 const rl = readline.createInterface({
     input: process.stdin,
@@ -34,8 +36,14 @@ const listResources = async (service) => {
             case 's3':
                 await listS3Buckets(accessKeyId, secretAccessKey, region);
                 break;
+            case 'lambda':
+                await listLambdaFunctions(accessKeyId, secretAccessKey, region);
+                break;
+            case 'dynamodb':
+                await listDynamoDBTables(accessKeyId, secretAccessKey, region);
+                break;
             default:
-                console.log('Service not supported. Please choose "ec2" or "s3".');
+                console.log('Service not supported. Please choose "ec2", "s3", "lambda", or "dynamodb".');
         }
     } catch (err) {
         console.error('Error fetching resources:', err);
@@ -76,6 +84,36 @@ const listS3Buckets = async (accessKeyId, secretAccessKey, region) => {
 
     const buckets = response.Buckets.map(bucket => bucket.Name);
     console.log('S3 Buckets:', buckets);
+};
+
+const listLambdaFunctions = async (accessKeyId, secretAccessKey, region) => {
+    const lambdaClient = new LambdaClient({
+        region,
+        credentials: {
+            accessKeyId,
+            secretAccessKey,
+        },
+    });
+    const command = new ListFunctionsCommand({});
+    const response = await lambdaClient.send(command);
+
+    const functions = response.Functions.map(fn => fn.FunctionName);
+    console.log('Lambda Functions:', functions);
+};
+
+const listDynamoDBTables = async (accessKeyId, secretAccessKey, region) => {
+    const dynamoClient = new DynamoDBClient({
+        region,
+        credentials: {
+            accessKeyId,
+            secretAccessKey,
+        },
+    });
+    const command = new ListTablesCommand({});
+    const response = await dynamoClient.send(command);
+
+    const tables = response.TableNames;
+    console.log('DynamoDB Tables:', tables);
 };
 
 export { listResources };
