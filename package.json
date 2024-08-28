@@ -1,6 +1,6 @@
 {
   "name": "cloud-resource-logger",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "CLI tool for listing AWS resources such as EC2 instances and S3 buckets. Prompts for AWS credentials and displays resource information.",
   "main": "index.js",
   "scripts": {
