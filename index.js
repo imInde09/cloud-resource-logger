@@ -1,7 +1,10 @@
-// index.js
+#!/usr/bin/env node
+
 const { Command } = require('commander');
 const { listResources } = require('./src/listResources');
+const { version } = require('./package.json'); // Import version from package.json
 
+// Function to display help information
 const displayHelp = () => {
     console.log('Usage:');
     console.log('  cloud-resource-logger list --service <service>');
@@ -14,13 +17,15 @@ const displayHelp = () => {
     console.log('  help     - Show this help message');
 };
 
+// Create a new Commander program instance
 const program = new Command();
 
 program
     .name('cloud-resource-logger')
     .description('CLI for listing AWS resources')
-    .version('1.0.0');
+    .version(version); // Use version from package.json
 
+// Define the 'list' command
 program
     .command('list')
     .description('List AWS resources')
@@ -34,6 +39,7 @@ program
         }
     });
 
+// Define the 'help' command
 program
     .command('help')
     .description('Show help message')
@@ -41,4 +47,5 @@ program
         displayHelp();
     });
 
+// Parse command-line arguments
 program.parse(process.argv);
