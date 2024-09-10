@@ -4,25 +4,11 @@ import { Command } from 'commander';
 import fs from 'fs';
 import path from 'path';
 import { listResources } from './src/listResources.js';
+import { startEnvironment, stopEnvironment } from './src/environmentManager.js'; // New import
 
 // Read package.json
 const packageJsonPath = path.resolve('package.json');
 const { version } = JSON.parse(fs.readFileSync(packageJsonPath, 'utf8'));
-
-// Function to display help information
-const displayHelp = () => {
-    console.log('Usage:');
-    console.log('  cloud-resource-logger list --service <service>');
-    console.log('');
-    console.log('Available Services:');
-    console.log('  ec2       - List all EC2 instances');
-    console.log('  s3        - List all S3 buckets');
-    console.log('  lambda    - List all Lambda functions');
-    console.log('  dynamodb  - List all DynamoDB tables');
-    console.log('');
-    console.log('Commands:');
-    console.log('  help      - Show this help message');
-};
 
 // Create a new Commander program instance
 const program = new Command();
@@ -46,20 +32,31 @@ program
         await listResources(service);
     });
 
+// Define the 'start' command
+program
+    .command('start')
+    .description('Start environment and save AWS credentials')
+    .action(async () => {
+        await startEnvironment(); // Call the function to start the environment
+    });
+
+// Define the 'stop' command
+program
+    .command('stop')
+    .description('Stop environment and delete saved AWS credentials')
+    .action(() => {
+        stopEnvironment(); // Call the function to stop the environment
+    });
+
 // Define the 'help' command
 program
     .command('help')
     .description('Show help message')
     .action(() => {
-        displayHelp();
-    });
-
-// Define the 'version' command
-program
-    .command('version')
-    .description('Show version number')
-    .action(() => {
-        console.log(version);
+        console.log('Usage:');
+        console.log('  cloud-resource-logger list --service <service>');
+        console.log('  cloud-resource-logger start');
+        console.log('  cloud-resource-logger stop');
     });
 
 // Parse command-line arguments

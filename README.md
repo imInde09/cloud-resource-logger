@@ -15,6 +15,26 @@ npm install -g cloud-resource-logger
 
 To use `cloud-resource-logger`, you'll need to provide AWS credentials and specify the service you want to query.
 
+### Start Environment
+
+To start the environment and save AWS credentials, use the following command:
+
+```bash
+cloud-resource-logger start
+```
+
+This command will prompt you to enter your AWS credentials and save them for use with subsequent commands.
+
+### Stop Environment
+
+To stop the environment and remove saved AWS credentials, use the following command:
+
+```bash
+cloud-resource-logger stop
+```
+
+This command will remove the saved credentials, ensuring that subsequent commands prompt for credentials again.
+
 ### List EC2 Instances
 
 To list all EC2 instances, use the following command:
@@ -49,6 +69,10 @@ cloud-resource-logger list --service dynamodb
 
 ## Commands
 
+- `start`: Start the environment and save AWS credentials.
+
+- `stop`: Stop the environment and remove saved AWS credentials.
+
 - `list --service <service>`: Specify the AWS service you want to query. Valid options are:
   - `ec2` - Lists all EC2 instances.
   - `s3` - Lists all S3 buckets.
@@ -60,37 +84,23 @@ cloud-resource-logger list --service dynamodb
 ## Example
 
 ```bash
-$ cloud-resource-logger list --service ec2
+$ cloud-resource-logger start
 Enter AWS Access Key ID: [Your Access Key ID]
 Enter AWS Secret Access Key: [Your Secret Access Key]
 Enter AWS Region: [Your AWS Region]
 
+Environment started and AWS credentials saved.
+
+$ cloud-resource-logger list --service ec2
 Active EC2 Instances:
 [ ... list of instances ... ]
 
 $ cloud-resource-logger list --service s3
-Enter AWS Access Key ID: [Your Access Key ID]
-Enter AWS Secret Access Key: [Your Secret Access Key]
-Enter AWS Region: [Your AWS Region]
-
 S3 Buckets:
 [ ... list of buckets ... ]
 
-$ cloud-resource-logger list --service lambda
-Enter AWS Access Key ID: [Your Access Key ID]
-Enter AWS Secret Access Key: [Your Secret Access Key]
-Enter AWS Region: [Your AWS Region]
-
-Lambda Functions:
-[ ... list of functions ... ]
-
-$ cloud-resource-logger list --service dynamodb
-Enter AWS Access Key ID: [Your Access Key ID]
-Enter AWS Secret Access Key: [Your Secret Access Key]
-Enter AWS Region: [Your AWS Region]
-
-DynamoDB Tables:
-[ ... list of tables ... ]
+$ cloud-resource-logger stop
+Environment stopped and AWS credentials removed.
 ```
 
 ## Configuration
@@ -102,10 +112,6 @@ You will be prompted to enter the following AWS credentials:
 - **AWS Region**
 
 These credentials are used to authenticate with AWS and fetch the relevant resource information.
-
-## License
-
-MIT License. See the [LICENSE](LICENSE) file for more details.
 
 ## Contributing
 

@@ -1,20 +1,44 @@
 import readline from 'readline';
 import { EC2Client, DescribeInstancesCommand } from '@aws-sdk/client-ec2';
 import { S3Client, ListBucketsCommand } from '@aws-sdk/client-s3';
-import { LambdaClient, ListFunctionsCommand } from '@aws-sdk/client-lambda'; // Added LambdaClient
-import { DynamoDBClient, ListTablesCommand } from '@aws-sdk/client-dynamodb'; // Added DynamoDBClient
+import { LambdaClient, ListFunctionsCommand } from '@aws-sdk/client-lambda';
+import { DynamoDBClient, ListTablesCommand } from '@aws-sdk/client-dynamodb';
+import fs from 'fs';
+import path from 'path';
 
 const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout
 });
 
+const configPath = path.resolve('config.json');
+
+// Save AWS credentials to config.json
+const saveCredentials = (credentials) => {
+    fs.writeFileSync(configPath, JSON.stringify(credentials));
+};
+
+// Load AWS credentials from config.json
+const loadCredentials = () => {
+    if (fs.existsSync(configPath)) {
+        return JSON.parse(fs.readFileSync(configPath, 'utf8'));
+    }
+    return null;
+};
+
+// Delete config.json to stop environment
+const clearCredentials = () => {
+    if (fs.existsSync(configPath)) {
+        fs.unlinkSync(configPath);
+    }
+};
+
+// Prompt user for AWS credentials and region
 const promptForCredentials = () => {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
         rl.question('Enter AWS Access Key ID: ', (accessKeyId) => {
             rl.question('Enter AWS Secret Access Key: ', (secretAccessKey) => {
                 rl.question('Enter AWS Region: ', (region) => {
-                    rl.close();
                     resolve({
                         accessKeyId,
                         secretAccessKey,
@@ -26,9 +50,20 @@ const promptForCredentials = () => {
     });
 };
 
+// Ensure readline is closed after each command
+const closeReadline = () => {
+    rl.close();
+};
+
+// List resources based on the selected AWS service
 const listResources = async (service) => {
     try {
-        const { accessKeyId, secretAccessKey, region } = await promptForCredentials();
+        let credentials = loadCredentials();
+        if (!credentials) {
+            credentials = await promptForCredentials();
+            saveCredentials(credentials);
+        }
+        const { accessKeyId, secretAccessKey, region } = credentials;
         switch (service.toLowerCase()) {
             case 'ec2':
                 await listEC2Instances(accessKeyId, secretAccessKey, region);
@@ -47,16 +82,20 @@ const listResources = async (service) => {
         }
     } catch (err) {
         console.error('Error fetching resources:', err);
+    } finally {
+        // Always close readline interface after completing the action
+        closeReadline();
     }
 };
 
+// List EC2 instances
 const listEC2Instances = async (accessKeyId, secretAccessKey, region) => {
     const ec2Client = new EC2Client({
         region,
         credentials: {
             accessKeyId,
-            secretAccessKey,
-        },
+            secretAccessKey
+        }
     });
     const command = new DescribeInstancesCommand({});
     const response = await ec2Client.send(command);
@@ -64,20 +103,21 @@ const listEC2Instances = async (accessKeyId, secretAccessKey, region) => {
     const instances = response.Reservations.flatMap(reservation =>
         reservation.Instances.map(instance => ({
             InstanceId: instance.InstanceId,
-            State: instance.State.Name,
+            State: instance.State.Name
         }))
     );
 
     console.log('Active EC2 Instances:', instances);
 };
 
+// List S3 buckets
 const listS3Buckets = async (accessKeyId, secretAccessKey, region) => {
     const s3Client = new S3Client({
         region,
         credentials: {
             accessKeyId,
-            secretAccessKey,
-        },
+            secretAccessKey
+        }
     });
     const command = new ListBucketsCommand({});
     const response = await s3Client.send(command);
@@ -86,13 +126,14 @@ const listS3Buckets = async (accessKeyId, secretAccessKey, region) => {
     console.log('S3 Buckets:', buckets);
 };
 
+// List Lambda functions
 const listLambdaFunctions = async (accessKeyId, secretAccessKey, region) => {
     const lambdaClient = new LambdaClient({
         region,
         credentials: {
             accessKeyId,
-            secretAccessKey,
-        },
+            secretAccessKey
+        }
     });
     const command = new ListFunctionsCommand({});
     const response = await lambdaClient.send(command);
@@ -101,13 +142,14 @@ const listLambdaFunctions = async (accessKeyId, secretAccessKey, region) => {
     console.log('Lambda Functions:', functions);
 };
 
+// List DynamoDB tables
 const listDynamoDBTables = async (accessKeyId, secretAccessKey, region) => {
     const dynamoClient = new DynamoDBClient({
         region,
         credentials: {
             accessKeyId,
-            secretAccessKey,
-        },
+            secretAccessKey
+        }
     });
     const command = new ListTablesCommand({});
     const response = await dynamoClient.send(command);
@@ -116,4 +158,5 @@ const listDynamoDBTables = async (accessKeyId, secretAccessKey, region) => {
     console.log('DynamoDB Tables:', tables);
 };
 
-export { listResources };
+// Export necessary functions
+export { listResources, clearCredentials };
