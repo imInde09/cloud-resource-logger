@@ -161,5 +161,9 @@ Thank you for using `cloud-resource-logger`!
 - **Example**: Example usage of the commands.
 - **Configuration**: Explanation of what credentials are required.
 - **License**: Information about the license.
-- **Contributing**: Instructions for contributing to the project.
+-**Contributing**: Instructions for contributing to the project. [See contributing guidelines](./CONTRIBUTE.md)
 - **Contact**: How to contact you for support or feedback.
+
+## File Structure and Functionality
+
+For a detailed overview of the source code, including the file structure and functionality of each component, refer to the [File Structure](./FILESTRUCTURE.md).
