@@ -4,7 +4,7 @@ import { Command } from 'commander';
 import fs from 'fs';
 import path from 'path';
 import { listResources } from './src/listResources.js';
-import { startEnvironment, stopEnvironment } from './src/environmentManager.js'; // New import
+import { startEnvironment, stopEnvironment } from './src/environmentManager.js'; 
 
 // Read package.json
 const packageJsonPath = path.resolve('package.json');

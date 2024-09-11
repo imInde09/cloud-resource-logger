@@ -1,9 +1,9 @@
-import { listEC2Instances } from './ec2.js';
-import { listS3Buckets } from './s3.js';
-import { listLambdaFunctions } from './lambda.js';
-import { listDynamoDBTables } from './dynamodb.js';
-import { listRDSInstances } from './rds.js'; 
-import { listIAMUsers } from './iam.js';     
+import { listEC2Instances } from './resources/ec2.js';
+import { listS3Buckets } from './resources/s3.js';
+import { listLambdaFunctions } from './resources/lambda.js';
+import { listDynamoDBTables } from './resources/dynamodb.js';
+import { listRDSInstances } from './resources/rds.js'; 
+import { listIAMUsers } from './resources/iam.js';     
 import fs from 'fs';
 import path from 'path';
 import readline from 'readline';
