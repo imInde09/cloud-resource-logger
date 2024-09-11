@@ -67,17 +67,37 @@ To list all DynamoDB tables, use the following command:
 cloud-resource-logger list --service dynamodb
 ```
 
+### List IAM Users and Policies
+
+To list IAM users and their attached policies, use the following command:
+
+```bash
+cloud-resource-logger list --service iam
+```
+
+This will print all IAM users along with their attached policies.
+
+### List RDS Instances
+
+To list RDS instance details, use the following command:
+
+```bash
+cloud-resource-logger list --service rds
+```
+
+This will print information about available RDS instances, clusters, and other related details.
+
 ## Commands
 
 - `start`: Start the environment and save AWS credentials.
-
 - `stop`: Stop the environment and remove saved AWS credentials.
-
 - `list --service <service>`: Specify the AWS service you want to query. Valid options are:
   - `ec2` - Lists all EC2 instances.
   - `s3` - Lists all S3 buckets.
   - `lambda` - Lists all Lambda functions.
   - `dynamodb` - Lists all DynamoDB tables.
+  - `iam` - Lists IAM users and their attached policies.
+  - `rds` - Lists RDS instances and clusters.
 
 - `help`: Show this help message.
 
@@ -98,6 +118,14 @@ Active EC2 Instances:
 $ cloud-resource-logger list --service s3
 S3 Buckets:
 [ ... list of buckets ... ]
+
+$ cloud-resource-logger list --service iam
+IAM Users and Policies:
+[ ... list of users and attached policies ... ]
+
+$ cloud-resource-logger list --service rds
+RDS Instances:
+[ ... list of RDS instances ... ]
 
 $ cloud-resource-logger stop
 Environment stopped and AWS credentials removed.
