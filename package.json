@@ -18,11 +18,17 @@
     "cli",
     "ec2",
     "s3",
+    "lambda",
+    "dynamodb",
+    "iam",
+    "rds",
+    "ecs",
+    "eks",
     "resource",
     "logger"
   ],
   "author": "Prathamesh Inde",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "@aws-sdk/client-dynamodb": "^3.637.0",
     "@aws-sdk/client-ec2": "^3.637.0",
