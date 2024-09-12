@@ -1,0 +1,453 @@
+
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <title>Read Me</title>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <style>
+            body {
+  font: 400 16px/1.5 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #111;
+  background-color: #fdfdfd;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-feature-settings: 'kern' 1;
+  -moz-font-feature-settings: 'kern' 1;
+  -o-font-feature-settings: 'kern' 1;
+  font-feature-settings: 'kern' 1;
+  font-kerning: normal;
+  padding: 30px;
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    padding: 5px;
+  }
+
+  main {
+    padding: 0px 20px 20px 20px !important;
+  }
+}
+
+main {
+  margin: 0px;
+  max-width: 900px;
+  border: 1px solid #e1e4e8;
+  padding: 10px 40px;
+  padding-bottom: 20px;
+  border-radius: 2px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+hr {
+  color: #bbb;
+  background-color: #bbb;
+  height: 1px;
+  flex: 0 1 auto;
+  margin: 1em 0;
+  padding: 0;
+  border: none;
+}
+
+/**
+ * Links
+ */
+a {
+  color: #0366d6;
+  text-decoration: none;
+}
+a:visited {
+  color: #0366d6;
+}
+a:hover {
+  color: #0366d6;
+  text-decoration: underline;
+}
+
+pre {
+  background-color: #f6f8fa;
+  border-radius: 3px;
+  font-size: 85%;
+  line-height: 1.45;
+  overflow: auto;
+  padding: 16px;
+}
+
+/**
+  * Code blocks
+  */
+
+code {
+  background-color: rgba(27, 31, 35, 0.05);
+  border-radius: 3px;
+  font-size: 85%;
+  margin: 0;
+  word-wrap: break-word;
+  padding: 0.2em 0.4em;
+  font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier,
+    monospace;
+}
+
+pre > code {
+  background-color: transparent;
+  border: 0;
+  display: inline;
+  line-height: inherit;
+  margin: 0;
+  overflow: visible;
+  padding: 0;
+  word-wrap: normal;
+  font-size: 100%;
+}
+
+/**
+ * Blockquotes
+ */
+blockquote {
+  margin-left: 30px;
+  margin-top: 0px;
+  margin-bottom: 16px;
+  border-left-width: 3px;
+  padding: 0 1em;
+  color: #828282;
+  border-left: 4px solid #e8e8e8;
+  padding-left: 15px;
+  font-size: 18px;
+  letter-spacing: -1px;
+  font-style: italic;
+}
+blockquote * {
+  font-style: normal !important;
+  letter-spacing: 0;
+  color: #6a737d !important;
+}
+
+/**
+ * Tables
+ */
+table {
+  border-spacing: 2px;
+  display: block;
+  font-size: 14px;
+  overflow: auto;
+  width: 100%;
+  margin-bottom: 16px;
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+td {
+  padding: 6px 13px;
+  border: 1px solid #dfe2e5;
+}
+
+th {
+  font-weight: 600;
+  padding: 6px 13px;
+  border: 1px solid #dfe2e5;
+}
+
+tr {
+  background-color: #fff;
+  border-top: 1px solid #c6cbd1;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f6f8fa;
+}
+
+/**
+ * Others
+ */
+
+img {
+  max-width: 100%;
+}
+
+p {
+  line-height: 24px;
+  font-weight: 400;
+  font-size: 16px;
+  color: #24292e;
+}
+
+ul {
+  margin-top: 0;
+}
+
+li {
+  color: #24292e;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+li + li {
+  margin-top: 0.25em;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial,
+    sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  color: #24292e;
+}
+
+a:visited {
+  color: #0366d6;
+}
+
+h1,
+h2,
+h3 {
+  border-bottom: 1px solid #eaecef;
+  color: #111;
+  /* Darker */
+}
+
+            </style>
+            <style>
+            pre code.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 1em
+}
+code.hljs {
+  padding: 3px 5px
+}
+/*!
+  Theme: GitHub
+  Description: Light theme as seen on github.com
+  Author: github.com
+  Maintainer: @Hirse
+  Updated: 2021-05-15
+
+  Outdated base version: https://github.com/primer/github-syntax-light
+  Current colors taken from GitHub's CSS
+*/
+.hljs {
+  color: #24292e;
+  background: #ffffff
+}
+.hljs-doctag,
+.hljs-keyword,
+.hljs-meta .hljs-keyword,
+.hljs-template-tag,
+.hljs-template-variable,
+.hljs-type,
+.hljs-variable.language_ {
+  /* prettylights-syntax-keyword */
+  color: #d73a49
+}
+.hljs-title,
+.hljs-title.class_,
+.hljs-title.class_.inherited__,
+.hljs-title.function_ {
+  /* prettylights-syntax-entity */
+  color: #6f42c1
+}
+.hljs-attr,
+.hljs-attribute,
+.hljs-literal,
+.hljs-meta,
+.hljs-number,
+.hljs-operator,
+.hljs-variable,
+.hljs-selector-attr,
+.hljs-selector-class,
+.hljs-selector-id {
+  /* prettylights-syntax-constant */
+  color: #005cc5
+}
+.hljs-regexp,
+.hljs-string,
+.hljs-meta .hljs-string {
+  /* prettylights-syntax-string */
+  color: #032f62
+}
+.hljs-built_in,
+.hljs-symbol {
+  /* prettylights-syntax-variable */
+  color: #e36209
+}
+.hljs-comment,
+.hljs-code,
+.hljs-formula {
+  /* prettylights-syntax-comment */
+  color: #6a737d
+}
+.hljs-name,
+.hljs-quote,
+.hljs-selector-tag,
+.hljs-selector-pseudo {
+  /* prettylights-syntax-entity-tag */
+  color: #22863a
+}
+.hljs-subst {
+  /* prettylights-syntax-storage-modifier-import */
+  color: #24292e
+}
+.hljs-section {
+  /* prettylights-syntax-markup-heading */
+  color: #005cc5;
+  font-weight: bold
+}
+.hljs-bullet {
+  /* prettylights-syntax-markup-list */
+  color: #735c0f
+}
+.hljs-emphasis {
+  /* prettylights-syntax-markup-italic */
+  color: #24292e;
+  font-style: italic
+}
+.hljs-strong {
+  /* prettylights-syntax-markup-bold */
+  color: #24292e;
+  font-weight: bold
+}
+.hljs-addition {
+  /* prettylights-syntax-markup-inserted */
+  color: #22863a;
+  background-color: #f0fff4
+}
+.hljs-deletion {
+  /* prettylights-syntax-markup-deleted */
+  color: #b31d28;
+  background-color: #ffeef0
+}
+.hljs-char.escape_,
+.hljs-link,
+.hljs-params,
+.hljs-property,
+.hljs-punctuation,
+.hljs-tag {
+  /* purposely ignored */
+  
+}
+            </style>
+          </head>
+          <body>
+            <main>
+        <h1 id="cloud-resource-logger">Cloud-Resource-Logger</h1>
+<p><strong>cloud-resource-logger</strong> is a CLI tool for listing AWS resources such as EC2 instances, S3 buckets, Lambda functions, and DynamoDB tables. It prompts for AWS credentials and displays information about the specified resources.</p>
+<h2 id="installation">Installation</h2>
+<p>To install <code>cloud-resource-logger</code>, you can use npm. For global installation, run:</p>
+<pre><code class="hljs bash language-bash">npm install -g cloud-resource-logger</code></pre>
+<h2 id="usage">Usage</h2>
+<p>To use <code>cloud-resource-logger</code>, you'll need to provide AWS credentials and specify the service you want to query.</p>
+<h3 id="start-environment">Start Environment</h3>
+<p>To start the environment and save AWS credentials, use the following command:</p>
+<pre><code class="hljs bash language-bash">cloud-resource-logger start</code></pre>
+<p>This command will prompt you to enter your AWS credentials and save them for use with subsequent commands.</p>
+<h3 id="stop-environment">Stop Environment</h3>
+<p>To stop the environment and remove saved AWS credentials, use the following command:</p>
+<pre><code class="hljs bash language-bash">cloud-resource-logger stop</code></pre>
+<p>This command will remove the saved credentials, ensuring that subsequent commands prompt for credentials again.</p>
+<h3 id="list-ec2-instances">List EC2 Instances</h3>
+<p>To list all EC2 instances, use the following command:</p>
+<pre><code class="hljs bash language-bash">cloud-resource-logger list --service ec2</code></pre>
+<h3 id="list-s3-buckets">List S3 Buckets</h3>
+<p>To list all S3 buckets, use the following command:</p>
+<pre><code class="hljs bash language-bash">cloud-resource-logger list --service s3</code></pre>
+<h3 id="list-lambda-functions">List Lambda Functions</h3>
+<p>To list all Lambda functions, use the following command:</p>
+<pre><code class="hljs bash language-bash">cloud-resource-logger list --service lambda</code></pre>
+<h3 id="list-dynamodb-tables">List DynamoDB Tables</h3>
+<p>To list all DynamoDB tables, use the following command:</p>
+<pre><code class="hljs bash language-bash">cloud-resource-logger list --service dynamodb</code></pre>
+<h3 id="list-iam-users-and-policies">List IAM Users and Policies</h3>
+<p>To list IAM users and their attached policies, use the following command:</p>
+<pre><code class="hljs bash language-bash">cloud-resource-logger list --service iam</code></pre>
+<p>This will print all IAM users along with their attached policies.</p>
+<h3 id="list-rds-instances">List RDS Instances</h3>
+<p>To list RDS instance details, use the following command:</p>
+<pre><code class="hljs bash language-bash">cloud-resource-logger list --service rds</code></pre>
+<p>This will print information about available RDS instances, clusters, and other related details.</p>
+<h3 id="list-ecs-clusters">List ECS Clusters</h3>
+<p>To list ECS clusters, use the following command:</p>
+<pre><code class="hljs bash language-bash">cloud-resource-logger list --service ecs</code></pre>
+<h3 id="list-eks-clusters">List EKS Clusters</h3>
+<p>To list EKS clusters, use the following command:</p>
+<pre><code class="hljs bash language-bash">cloud-resource-logger list --service eks</code></pre>
+<h2 id="commands">Commands</h2>
+<ul>
+<li><p><code>start</code>: Start the environment and save AWS credentials.</p></li>
+<li><p><code>stop</code>: Stop the environment and remove saved AWS credentials.</p></li>
+<li><p><code>list --service &lt;service&gt;</code>: Specify the AWS service you want to query. Valid options are:</p>
+<ul>
+<li><code>ec2</code> - Lists all EC2 instances.</li>
+<li><code>s3</code> - Lists all S3 buckets.</li>
+<li><code>lambda</code> - Lists all Lambda functions.</li>
+<li><code>dynamodb</code> - Lists all DynamoDB tables.</li>
+<li><code>iam</code> - Lists IAM users and their attached policies.</li>
+<li><code>rds</code> - Lists RDS instances and clusters.</li>
+<li><code>ecs</code> - Lists ECS clusters.</li>
+<li><code>eks</code> - Lists EKS clusters.</li></ul></li>
+<li><p><code>help</code>: Show this help message.</p></li>
+</ul>
+<h2 id="example">Example</h2>
+<pre><code class="hljs bash language-bash">$ cloud-resource-logger start
+Enter AWS Access Key ID: [Your Access Key ID]
+Enter AWS Secret Access Key: [Your Secret Access Key]
+Enter AWS Region: [Your AWS Region]
+
+Environment started and AWS credentials saved.
+
+$ cloud-resource-logger list --service ec2
+Active EC2 Instances:
+[ ... list of instances ... ]
+
+$ cloud-resource-logger list --service s3
+S3 Buckets:
+[ ... list of buckets ... ]
+
+$ cloud-resource-logger list --service iam
+IAM Users and Policies:
+[ ... list of <span class="hljs-built_in">users</span> and attached policies ... ]
+
+$ cloud-resource-logger list --service rds
+RDS Instances:
+[ ... list of RDS instances ... ]
+
+$ cloud-resource-logger list --service ecs
+ECS Clusters:
+[ ... list of ECS clusters ... ]
+
+$ cloud-resource-logger list --service eks
+EKS Clusters:
+[ ... list of EKS clusters ... ]
+
+$ cloud-resource-logger stop
+Environment stopped and AWS credentials removed.</code></pre>
+<h2 id="configuration">Configuration</h2>
+<p>You will be prompted to enter the following AWS credentials:</p>
+<ul>
+<li><strong>AWS Access Key ID</strong></li>
+<li><strong>AWS Secret Access Key</strong></li>
+<li><strong>AWS Region</strong></li>
+</ul>
+<p>These credentials are used to authenticate with AWS and fetch the relevant resource information.</p>
+<h2 id="contributing">Contributing</h2>
+<p>Feel free to contribute to the project by opening issues or submitting pull requests. <a href="/dist/contributing.html">See contributing guidelines</a></p>
+<h2 id="contact">Contact</h2>
+<p>For any questions or feedback, please reach out to Prathamesh Inde at <a href="&#109;&#97;&#x69;&#x6c;&#116;&#x6f;&#x3a;&#112;&#114;&#97;&#116;&#x68;&#x61;&#x6d;&#101;&#x73;&#x68;&#x69;&#x6e;&#x64;e&#56;&#x36;&#x40;&#103;&#x6d;&#97;&#x69;&#x6c;&#x2e;&#99;&#111;&#109;">&#112;&#x72;&#97;&#116;&#104;&#x61;&#109;&#101;&#x73;&#x68;&#x69;&#x6e;&#x64;&#101;&#56;&#x36;&#x40;&#x67;&#109;&#x61;&#105;&#108;&#46;&#x63;&#x6f;m</a>.</p>
+<h2 id="key-sections-included">Key Sections Included</h2>
+<ul>
+<li><strong>Installation</strong>: How to install the CLI tool.</li>
+<li><strong>Usage</strong>: Instructions on how to use the tool with example commands.</li>
+<li><strong>Commands</strong>: Detailed description of the available commands and their options.</li>
+<li><strong>Example</strong>: Example usage of the commands.</li>
+<li><strong>Configuration</strong>: Explanation of what credentials are required.</li>
+<li><strong>License</strong>: Information about the license.</li>
+<li><strong>Contributing</strong>: Instructions for contributing to the project. <a href="/dist/contributing.html">See contributing guidelines</a></li>
+<li><strong>Contact</strong>: How to contact you for support or feedback.</li>
+</ul>
+<h2 id="file-structure-and-functionality">File Structure and Functionality</h2>
+<p>For a detailed overview of the source code, including the file structure and functionality of each component, refer to the <a href="/dist/filestructure.html">File Structure</a>.</p>
+<hr />
+<p>Let me know if there are any further changes you’d like!</p>
+<p>Thank you for using <code>cloud-resource-logger</code>!</p>
+            </main>
+          </body>
+        </html>

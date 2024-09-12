@@ -40,6 +40,7 @@
     "@aws-sdk/client-s3": "^3.637.0",
     "commander": "^12.1.0",
     "dotenv": "^16.4.5",
+    "github-readme-to-html": "^1.0.10",
     "inquirer": "^10.1.8"
   },
   "repository": {

@@ -183,7 +183,7 @@ For any questions or feedback, please reach out to Prathamesh Inde at <prathames
 - **Example**: Example usage of the commands.
 - **Configuration**: Explanation of what credentials are required.
 - **License**: Information about the license.
-- **Contributing**: Instructions for contributing to the project. [See contributing guidelines](./CONTRIBUTING.md)
+- **Contributing**: Instructions for contributing to the project. [See contributing guidelines](./CONTRIBUTE.md)
 - **Contact**: How to contact you for support or feedback.
 
 ## File Structure and Functionality

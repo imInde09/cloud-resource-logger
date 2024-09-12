@@ -42,4 +42,3 @@ This directory contains the source code for the `cloud-resource-logger` CLI tool
 ## Usage
 
 Refer to the [README](./README.md) for usage instructions and command examples.
-
