@@ -4,6 +4,8 @@ import { listLambdaFunctions } from './resources/lambda.js';
 import { listDynamoDBTables } from './resources/dynamodb.js';
 import { listRDSInstances } from './resources/rds.js'; 
 import { listIAMUsers } from './resources/iam.js';     
+import { listECSClusters } from './resources/ecs.js';  
+import { listEKSClusters } from './resources/eks.js';  
 import fs from 'fs';
 import path from 'path';
 import readline from 'readline';
@@ -75,6 +77,12 @@ const listResources = async (service) => {
             case 'iam':
                 await listIAMUsers(accessKeyId, secretAccessKey, region);
                 break;
+            case 'ecs':   
+                await listECSClusters(accessKeyId, secretAccessKey, region);
+                break;
+            case 'eks':   
+                await listEKSClusters(accessKeyId, secretAccessKey, region);
+                break;    
             default:
                 console.log('Service not supported. Please choose "ec2", "s3", "lambda", or "dynamodb".');
         }

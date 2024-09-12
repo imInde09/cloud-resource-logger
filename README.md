@@ -87,6 +87,22 @@ cloud-resource-logger list --service rds
 
 This will print information about available RDS instances, clusters, and other related details.
 
+### List ECS Clusters
+
+To list ECS clusters, use the following command:
+
+```bash
+cloud-resource-logger list --service ecs
+```
+
+### List EKS Clusters
+
+To list EKS clusters, use the following command:
+
+```bash
+cloud-resource-logger list --service eks
+```
+
 ## Commands
 
 - `start`: Start the environment and save AWS credentials.
@@ -98,6 +114,8 @@ This will print information about available RDS instances, clusters, and other r
   - `dynamodb` - Lists all DynamoDB tables.
   - `iam` - Lists IAM users and their attached policies.
   - `rds` - Lists RDS instances and clusters.
+  - `ecs` - Lists ECS clusters.
+  - `eks` - Lists EKS clusters.
 
 - `help`: Show this help message.
 
@@ -127,6 +145,14 @@ $ cloud-resource-logger list --service rds
 RDS Instances:
 [ ... list of RDS instances ... ]
 
+$ cloud-resource-logger list --service ecs
+ECS Clusters:
+[ ... list of ECS clusters ... ]
+
+$ cloud-resource-logger list --service eks
+EKS Clusters:
+[ ... list of EKS clusters ... ]
+
 $ cloud-resource-logger stop
 Environment stopped and AWS credentials removed.
 ```
@@ -143,17 +169,13 @@ These credentials are used to authenticate with AWS and fetch the relevant resou
 
 ## Contributing
 
-Feel free to contribute to the project by opening issues or submitting pull requests.
+Feel free to contribute to the project by opening issues or submitting pull requests. [See contributing guidelines](./CONTRIBUTE.md)
 
 ## Contact
 
 For any questions or feedback, please reach out to Prathamesh Inde at <prathameshinde86@gmail.com>.
 
----
-
-Thank you for using `cloud-resource-logger`!
-
-## Key Sections Included:
+## Key Sections Included
 
 - **Installation**: How to install the CLI tool.
 - **Usage**: Instructions on how to use the tool with example commands.
@@ -161,9 +183,14 @@ Thank you for using `cloud-resource-logger`!
 - **Example**: Example usage of the commands.
 - **Configuration**: Explanation of what credentials are required.
 - **License**: Information about the license.
--**Contributing**: Instructions for contributing to the project. [See contributing guidelines](./CONTRIBUTE.md)
+- **Contributing**: Instructions for contributing to the project. [See contributing guidelines](./CONTRIBUTING.md)
 - **Contact**: How to contact you for support or feedback.
 
 ## File Structure and Functionality
 
 For a detailed overview of the source code, including the file structure and functionality of each component, refer to the [File Structure](./FILESTRUCTURE.md).
+
+---
+Let me know if there are any further changes you’d like!
+
+Thank you for using `cloud-resource-logger`!

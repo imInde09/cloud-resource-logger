@@ -12,6 +12,8 @@ This directory contains the source code for the `cloud-resource-logger` CLI tool
     - **`dynamodb.js`**: Handles listing of DynamoDB tables.
     - **`iam.js`**: Handles listing of IAM users and their attached policies.
     - **`rds.js`**: Handles listing of RDS instances, clusters, and related details.
+    - **`ecs.js`**: Handles listing of ECS clusters.
+    - **`eks.js`**: Handles listing of EKS clusters.
   - **`listResources.js`**: Central file for listing resources based on the selected AWS service. It imports functionality from individual service files in the `resources/` folder.
   - **`environmentManager.js`**: Manages environment setup and teardown, including saving and removing AWS credentials.
 
@@ -34,6 +36,8 @@ This directory contains the source code for the `cloud-resource-logger` CLI tool
   - `dynamodb` - Lists DynamoDB tables.
   - `iam` - Lists IAM users and attached policies.
   - `rds` - Lists RDS instances, clusters, and related details.
+  - `ecs` - Lists ECS clusters.
+  - `eks` - Lists EKS clusters.
 
 ## Usage
 
