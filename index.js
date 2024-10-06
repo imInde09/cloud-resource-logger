@@ -57,6 +57,7 @@ program
         console.log('  cloud-resource-logger list --service <service>');
         console.log('  cloud-resource-logger start');
         console.log('  cloud-resource-logger stop');
+        process.exit(0);
     });
 
 // Parse command-line arguments
