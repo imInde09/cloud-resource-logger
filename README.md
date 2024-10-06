@@ -11,6 +11,12 @@ To install `cloud-resource-logger`, you can use npm. For global installation, ru
 npm install -g cloud-resource-logger
 ```
 
+## NPM Package
+
+You can find the `cloud-resource-logger` package on npm at the following link:
+
+[NPM Package: cloud-resource-logger](https://www.npmjs.com/package/cloud-resource-logger)
+
 ## Usage
 
 To use `cloud-resource-logger`, you'll need to provide AWS credentials and specify the service you want to query.
@@ -103,6 +109,62 @@ To list EKS clusters, use the following command:
 cloud-resource-logger list --service eks
 ```
 
+### List CloudWatch Alarms
+
+To list CloudWatch alarms, use the following command:
+
+```bash
+cloud-resource-logger list --service cloudwatch
+```
+
+### List CloudFormation Stacks
+
+To list CloudFormation stacks, use the following command:
+
+```bash
+cloud-resource-logger list --service cloudformation
+```
+
+### List Route 53 Hosted Zones
+
+To list Route 53 hosted zones, use the following command:
+
+```bash
+cloud-resource-logger list --service route53
+```
+
+### List SNS Topics
+
+To list SNS topics, use the following command:
+
+```bash
+cloud-resource-logger list --service sns
+```
+
+### List SES Identities
+
+To list SES identities, use the following command:
+
+```bash
+cloud-resource-logger list --service ses
+```
+
+### List Load Balancers
+
+To list load balancers, use the following command:
+
+```bash
+cloud-resource-logger list --service elb
+```
+
+### List Kinesis Streams
+
+To list Kinesis streams, use the following command:
+
+```bash
+cloud-resource-logger list --service kinesis
+```
+
 ## Commands
 
 - `start`: Start the environment and save AWS credentials.
@@ -116,6 +178,13 @@ cloud-resource-logger list --service eks
   - `rds` - Lists RDS instances and clusters.
   - `ecs` - Lists ECS clusters.
   - `eks` - Lists EKS clusters.
+  - `cloudwatch` - Lists CloudWatch alarms.
+  - `cloudformation` - Lists CloudFormation stacks.
+  - `route53` - Lists Route 53 hosted zones.
+  - `sns` - Lists SNS topics.
+  - `ses` - Lists SES identities.
+  - `elb` - Lists load balancers.
+  - `kinesis` - Lists Kinesis streams.
 
 - `help`: Show this help message.
 
@@ -152,6 +221,34 @@ ECS Clusters:
 $ cloud-resource-logger list --service eks
 EKS Clusters:
 [ ... list of EKS clusters ... ]
+
+$ cloud-resource-logger list --service cloudwatch
+CloudWatch Alarms:
+[ ... list of alarms ... ]
+
+$ cloud-resource-logger list --service cloudformation
+CloudFormation Stacks:
+[ ... list of stacks ... ]
+
+$ cloud-resource-logger list --service route53
+Route 53 Hosted Zones:
+[ ... list of hosted zones ... ]
+
+$ cloud-resource-logger list --service sns
+SNS Topics:
+[ ... list of topics ... ]
+
+$ cloud-resource-logger list --service ses
+SES Identities:
+[ ... list of identities ... ]
+
+$ cloud-resource-logger list --service elb
+Load Balancers:
+[ ... list of load balancers ... ]
+
+$ cloud-resource-logger list --service kinesis
+Kinesis Streams:
+[ ... list of streams ... ]
 
 $ cloud-resource-logger stop
 Environment stopped and AWS credentials removed.

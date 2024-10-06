@@ -14,6 +14,13 @@ This directory contains the source code for the `cloud-resource-logger` CLI tool
     - **`rds.js`**: Handles listing of RDS instances, clusters, and related details.
     - **`ecs.js`**: Handles listing of ECS clusters.
     - **`eks.js`**: Handles listing of EKS clusters.
+    - **`cloudwatch.js`**: Handles listing of CloudWatch alarms.
+    - **`cloudformation.js`**: Handles listing of CloudFormation stacks.
+    - **`route53.js`**: Handles listing of Route 53 hosted zones.
+    - **`sns.js`**: Handles listing of SNS topics.
+    - **`ses.js`**: Handles listing of SES identities.
+    - **`elb.js`**: Handles listing of load balancers.
+    - **`kinesis.js`**: Handles listing of Kinesis streams.
   - **`listResources.js`**: Central file for listing resources based on the selected AWS service. It imports functionality from individual service files in the `resources/` folder.
   - **`environmentManager.js`**: Manages environment setup and teardown, including saving and removing AWS credentials.
 
@@ -38,6 +45,13 @@ This directory contains the source code for the `cloud-resource-logger` CLI tool
   - `rds` - Lists RDS instances, clusters, and related details.
   - `ecs` - Lists ECS clusters.
   - `eks` - Lists EKS clusters.
+  - `cloudwatch` - Lists CloudWatch alarms.
+  - `cloudformation` - Lists CloudFormation stacks.
+  - `route53` - Lists Route 53 hosted zones.
+  - `sns` - Lists SNS topics.
+  - `ses` - Lists SES identities.
+  - `elb` - Lists load balancers.
+  - `kinesis` - Lists Kinesis streams.
 
 ## Usage
 

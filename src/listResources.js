@@ -2,24 +2,34 @@ import { listEC2Instances } from './resources/ec2.js';
 import { listS3Buckets } from './resources/s3.js';
 import { listLambdaFunctions } from './resources/lambda.js';
 import { listDynamoDBTables } from './resources/dynamodb.js';
-import { listRDSInstances } from './resources/rds.js'; 
-import { listIAMUsers } from './resources/iam.js';     
-import { listECSClusters } from './resources/ecs.js';  
-import { listEKSClusters } from './resources/eks.js';  
+import { listRDSInstances } from './resources/rds.js';
+import { listIAMUsers } from './resources/iam.js';
+import { listECSClusters } from './resources/ecs.js';
+import { listEKSClusters } from './resources/eks.js';
+import { listCloudWatchAlarms } from './resources/cloudwatch.js';
+import { listCloudFormationStacks } from './resources/cloudformation.js';
+import { listRoute53HostedZones } from './resources/route53.js';
+import { listSNSTopics, listTopicSubscriptions } from './resources/sns.js';
+import { listSESIdentities } from './resources/ses.js';
+import { listLoadBalancers } from './resources/elb.js';
+import { listKinesisStreams } from './resources/kinesis.js';
+
 import fs from 'fs';
 import path from 'path';
 import readline from 'readline';
 
+// Create readline interface for prompting user input
 const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout
 });
 
+// Set config path for storing AWS credentials
 const configPath = path.resolve('config.json');
 
 // Save AWS credentials to config.json
 const saveCredentials = (credentials) => {
-    fs.writeFileSync(configPath, JSON.stringify(credentials));
+    fs.writeFileSync(configPath, JSON.stringify(credentials, null, 2));
 };
 
 // Load AWS credentials from config.json
@@ -58,6 +68,7 @@ const listResources = async (service) => {
         }
         const { accessKeyId, secretAccessKey, region } = credentials;
 
+        // Handle services
         switch (service.toLowerCase()) {
             case 'ec2':
                 await listEC2Instances(accessKeyId, secretAccessKey, region);
@@ -77,14 +88,35 @@ const listResources = async (service) => {
             case 'iam':
                 await listIAMUsers(accessKeyId, secretAccessKey, region);
                 break;
-            case 'ecs':   
+            case 'ecs':
                 await listECSClusters(accessKeyId, secretAccessKey, region);
                 break;
-            case 'eks':   
+            case 'eks':
                 await listEKSClusters(accessKeyId, secretAccessKey, region);
-                break;    
+                break;
+            case 'cloudwatch':
+                await listCloudWatchAlarms(accessKeyId, secretAccessKey, region);
+                break;
+            case 'cloudformation':
+                await listCloudFormationStacks(accessKeyId, secretAccessKey, region);
+                break;
+            case 'route53':
+                await listRoute53HostedZones(accessKeyId, secretAccessKey, region);
+                break;
+            case 'sns':
+                await listSNSTopics(accessKeyId, secretAccessKey, region); 
+                break;
+            case 'ses':
+                await listSESIdentities(accessKeyId, secretAccessKey, region);
+                break;
+            case 'elb':
+                await listLoadBalancers(accessKeyId, secretAccessKey, region);
+                break;
+            case 'kinesis':
+                await listKinesisStreams(accessKeyId, secretAccessKey, region);
+                break;
             default:
-                console.log('Service not supported. Please choose "ec2", "s3", "lambda", or "dynamodb".');
+                console.log('Service not supported. Please choose a valid service: ec2, s3, lambda, dynamodb, rds, iam, ecs, eks, cloudwatch, cloudformation, route53, sns, ses, elb, kinesis.');
         }
     } catch (err) {
         console.error('Error fetching resources:', err);
