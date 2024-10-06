@@ -344,6 +344,13 @@ code.hljs {
 <li><strong><code>rds.js</code></strong>: Handles listing of RDS instances, clusters, and related details.</li>
 <li><strong><code>ecs.js</code></strong>: Handles listing of ECS clusters.</li>
 <li><strong><code>eks.js</code></strong>: Handles listing of EKS clusters.</li>
+<li><strong><code>cloudwatch.js</code></strong>: Handles listing of CloudWatch alarms.</li>
+<li><strong><code>cloudformation.js</code></strong>: Handles listing of CloudFormation stacks.</li>
+<li><strong><code>route53.js</code></strong>: Handles listing of Route 53 hosted zones.</li>
+<li><strong><code>sns.js</code></strong>: Handles listing of SNS topics.</li>
+<li><strong><code>ses.js</code></strong>: Handles listing of SES identities.</li>
+<li><strong><code>elb.js</code></strong>: Handles listing of load balancers.</li>
+<li><strong><code>kinesis.js</code></strong>: Handles listing of Kinesis streams.</li>
 <li><strong><code>listResources.js</code></strong>: Central file for listing resources based on the selected AWS service. It imports functionality from individual service files in the <code>resources/</code> folder.</li>
 <li><strong><code>environmentManager.js</code></strong>: Manages environment setup and teardown, including saving and removing AWS credentials.</li></ul></li>
 <li><p><strong><code>index.js</code></strong>: Entry point for the CLI tool. Configures and manages CLI commands using the <code>commander</code> library.</p></li>
@@ -363,7 +370,14 @@ code.hljs {
 <li><code>iam</code> - Lists IAM users and attached policies.</li>
 <li><code>rds</code> - Lists RDS instances, clusters, and related details.</li>
 <li><code>ecs</code> - Lists ECS clusters.</li>
-<li><code>eks</code> - Lists EKS clusters.</li></ul></li>
+<li><code>eks</code> - Lists EKS clusters.</li>
+<li><code>cloudwatch</code> - Lists CloudWatch alarms.</li>
+<li><code>cloudformation</code> - Lists CloudFormation stacks.</li>
+<li><code>route53</code> - Lists Route 53 hosted zones.</li>
+<li><code>sns</code> - Lists SNS topics.</li>
+<li><code>ses</code> - Lists SES identities.</li>
+<li><code>elb</code> - Lists load balancers.</li>
+<li><code>kinesis</code> - Lists Kinesis streams.</li></ul></li>
 </ul>
 <h2 id="usage">Usage</h2>
 <p>Refer to the <a href="/cloud-resource-logger/">README</a> for usage instructions and command examples.</p>
