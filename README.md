@@ -3,6 +3,12 @@
 
 **cloud-resource-logger** is a CLI tool for listing AWS resources such as EC2 instances, S3 buckets, Lambda functions, and DynamoDB tables. It prompts for AWS credentials and displays information about the specified resources.
 
+## Download Statistics
+
+![Total Downloads](https://img.shields.io/badge/total_downloads-1000-blue)
+![Downloads This Week](https://img.shields.io/badge/this_week-20-green)
+![Downloads Last Month](https://img.shields.io/badge/last_month-100-yellow)
+
 ## Installation
 
 To install `cloud-resource-logger`, you can use npm. For global installation, run:
