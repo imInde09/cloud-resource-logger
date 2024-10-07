@@ -2,9 +2,8 @@ name: Update Badges
 
 on:
   schedule:
-    - cron: '0 0 * * 1' # Runs every Monday at 00:00 UTC
-  workflow_dispatch: # Allows you to manually trigger the workflow
-
+    - cron: '0 1 * * *' # Run every day at 1am 
+  workflow_dispatch:
 jobs:
   update-badges:
     runs-on: ubuntu-latest
@@ -16,7 +15,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '22' # Specify the Node.js version you want to use
+          node-version: '22'
 
       - name: Install dependencies
         run: npm install
