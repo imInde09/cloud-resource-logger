@@ -8,6 +8,9 @@ const packageName = 'cloud-resource-logger';
 const fromDate = '2024-08-27';
 const toDate = new Date().toISOString().split('T')[0]; // Today's date
 
+console.log(fromDate);
+console.log(toDate);
+
 // Fetching download counts from npm-stat API
 const url = `https://npm-stat.com/api/download-counts?package=${packageName}&from=${fromDate}&until=${toDate}`;
 
@@ -25,6 +28,7 @@ async function updateBadges() {
             return date.toISOString().split('T')[0];
         });
         const downloadsLastMonth = lastMonthDates.reduce((sum, date) => sum + (data[packageName][date] || 0), 0);
+        console.log(totalDownloads, downloadsThisWeek, downloadsLastMonth);
 
         // Create badge markdown
         const badgesMarkdown = `## Download Statistics
@@ -39,7 +43,7 @@ async function updateBadges() {
         const readmeContent = fs.readFileSync(readmePath, 'utf-8');
 
         // Replace the existing badges section
-        const updatedReadmeContent = readmeContent.replace(/## Download Statistics.*?\n\n/s, badgesMarkdown);
+        const updatedReadmeContent = readmeContent.replace(/## Download Statistics[\s\S]*?(?=\n##|$)/, badgesMarkdown);
 
         // Write the updated content back to README.md
         fs.writeFileSync(readmePath, updatedReadmeContent);
