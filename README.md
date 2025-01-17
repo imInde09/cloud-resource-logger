@@ -7,7 +7,7 @@
 
 ![Total Downloads](https://img.shields.io/badge/total_downloads-1212-blue)
 ![Downloads This Week](https://img.shields.io/badge/this_week-0-green)
-![Downloads Last Month](https://img.shields.io/badge/last_month-37-yellow)
+![Downloads Last Month](https://img.shields.io/badge/last_month-36-yellow)
 
 ## Installation
 
