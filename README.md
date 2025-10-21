@@ -5,9 +5,9 @@
 
 ## Download Statistics
 
-![Total Downloads](https://img.shields.io/badge/total_downloads-1590-blue)
+![Total Downloads](https://img.shields.io/badge/total_downloads-1591-blue)
 ![Downloads This Week](https://img.shields.io/badge/this_week-0-green)
-![Downloads Last Month](https://img.shields.io/badge/last_month-121-yellow)
+![Downloads Last Month](https://img.shields.io/badge/last_month-122-yellow)
 
 ## Installation
 
